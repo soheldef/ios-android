@@ -18,36 +18,51 @@ public class BaseClass {
 		try {
 			DesiredCapabilities caps = new DesiredCapabilities();
 
-			caps.setCapability("platformName", "Android");
-			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10");
-			caps.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-55546");
-			caps.setCapability(MobileCapabilityType.UDID, "");
-			caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
-			caps.setCapability(MobileCapabilityType.APP, "");
-			caps.setCapability(MobileCapabilityType.BROWSER_NAME, "");
-			caps.setCapability("appPackage", "com.google.android.calculator");
-			caps.setCapability("appActivity", "com.android.calculator2.Calculator");
+			String platform = "ios";
+
+			if (platform.equalsIgnoreCase("Android")) {
+				caps.setCapability("platformName", "Android");
+				caps.setCapability("platformVersion", "10");
+				caps.setCapability("deviceName", "emulator-55546");
+				caps.setCapability("appPackage", "com.jayway.contacts");
+				caps.setCapability("appActivity", "com.jayway.contacts.MainActivity");
+				caps.setCapability("app", "/Users/sohel_mlbd/Downloads/Contacts.apk");
+				caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
+				//caps.setCapability("fullReset", false);
+				//caps.setCapability("noReset", true);
+				//caps.setCapability(MobileCapabilityType.UDID, "");
+				//caps.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+			}
+
+			else if (platform.equalsIgnoreCase("ios")){
+				caps.setCapability("platformName", "iOS");
+				caps.setCapability("platformVersion", "12.1");
+				caps.setCapability("deviceName", "iPhone XR");
+				caps.setCapability("app", "/Users/sohel_mlbd/Downloads/ContactsSimulator.app");
+				caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60);
+				//caps.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
+				//caps.setCapability(MobileCapabilityType.UDID, "E5A5F1AA-F4E3-456F-BEFC-CE566AB2E270");
+				//caps.setCapability("fullReset", false);
+				//caps.setCapability("noReset", true);
+			}
 
 
 			URL url = new URL("http://127.0.0.1:4723/wd/hub");
 			driver = new AppiumDriver<MobileElement>(url,caps);
-			//      For browser URL Get
-			//		driver.get("http://www.ally.com");
+			//driver.get("http://www.ally.com");
 			//      driver.close();
 		}
 
 		catch(Exception exp){
-			System.out.println("Cause is :"+exp.getCause());
-			System.out.println("Message is :"+exp.getMessage());
+			System.out.println("Cause is :" +exp.getCause());
+			System.out.println("Message is :" +exp.getMessage());
 			exp.printStackTrace();
-
 		}
 	}
 
 	@AfterSuite
 	public void teardown() {
+		//driver.removeApp("com.google.android.calculator");
 		driver.quit();
-
 	}
-
 }
