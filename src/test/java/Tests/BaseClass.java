@@ -18,7 +18,8 @@ public class BaseClass {
 		try {
 			DesiredCapabilities caps = new DesiredCapabilities();
 
-			String platform = "ios";
+			String platform = "android";
+			System.out.println("this is 2");
 
 			if (platform.equalsIgnoreCase("Android")) {
 				caps.setCapability("platformName", "Android");
@@ -62,6 +63,7 @@ public class BaseClass {
 
 	@AfterSuite
 	public void teardown() {
+		System.out.println("this is 3");
 		//driver.removeApp("com.google.android.calculator");
 		driver.quit();
 	}

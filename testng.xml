@@ -1,34 +1,19 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">	
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite thread-count="1" verbose="1" name="DK smoke test" annotations="JDK" parallel="tests">
-         
-  <test name="Login">
-	 <classes>
-	   <class name="com.test.tests.Login"/>
-	 </classes>
-   </test>
-   
-  <test name="CreateProject">
-     <classes>
-       <class name="com.test.tests.CreateProject"/>
-     </classes>
-   </test>
-   
-   <test name="CreateAvailability">
-     <classes>
-       <class name="com.test.tests.CreateAvailability"/>
-     </classes>
-   </test>
-   
-   <test name="SearchProject">
-     <classes>
-       <class name="com.test.tests.ProjectSearch"/>
-     </classes>
-   </test>
-   
-   <test name="SearchAvailability">
-     <classes>
-       <class name="com.test.tests.AvailabilitySearch"/>
-     </classes>
-   </test>
+<suite thread-count="1" name="contacts app">
+
+
+	<test name="Searchname_test">
+		<classes>
+			<class name="Tests.searchname_test" />
+		</classes>
+	</test>
+
+	<test name="Searchname_test2">
+		<classes>
+			<class name="Tests.searchname_test2" />
+		</classes>
+	</test>
+
+
 </suite>

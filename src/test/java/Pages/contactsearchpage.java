@@ -12,6 +12,7 @@ public class contactsearchpage {
 
 	public contactsearchpage(AppiumDriver<MobileElement> driver)
 	{
+		System.out.println("this is 4");
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 
@@ -21,6 +22,30 @@ public class contactsearchpage {
 	MobileElement searchField;
 
 	public void search(String name) {
+		System.out.println("this is 6");
+		searchField.clear();
 		searchField.sendKeys(name);
 	}
+	
+	@AndroidFindBy (id = "name") 
+	//@iOSXCUITFindBy (xpath = "//XCUIElementTypeSearchField[@name=\"Search for contact\"]") 
+	MobileElement validsearchresult;
+	
+	public String validsearchresult() {
+		System.out.println("this is 7");
+		String name = validsearchresult.getText();
+		return name;
+	}
+	
+	@AndroidFindBy (id = "main_text") 
+	//@iOSXCUITFindBy (xpath = "//XCUIElementTypeSearchField[@name=\"Search for contact\"]") 
+	MobileElement invalidsearchresult;
+	
+	public String invalidsearchresult() {
+		System.out.println("this is 8");
+		String name = invalidsearchresult.getText();
+		return name;
+	}
+
+	
 }

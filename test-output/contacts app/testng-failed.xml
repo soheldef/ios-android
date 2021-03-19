@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [contacts app]">
+  <test name="Searchname_test">
+    <classes>
+      <class name="Tests.searchname_test"/>
+    </classes>
+  </test> <!-- Searchname_test -->
+  <test name="Searchname_test2">
+    <classes>
+      <class name="Tests.searchname_test2"/>
+    </classes>
+  </test> <!-- Searchname_test2 -->
+  <test name="Searchname_test(failed)">
+    <classes>
+      <class name="Tests.searchname_test2">
+        <methods>
+          <include name="setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- Tests.searchname_test2 -->
+      <class name="Tests.searchname_test">
+        <methods>
+          <include name="setup"/>
+          <include name="SearchTamim"/>
+        </methods>
+      </class> <!-- Tests.searchname_test -->
+    </classes>
+  </test> <!-- Searchname_test(failed) -->
+  <test name="Searchname_test2(failed)">
+    <classes>
+      <class name="Tests.searchname_test2">
+        <methods>
+          <include name="SearchTamim2"/>
+          <include name="setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- Tests.searchname_test2 -->
+      <class name="Tests.searchname_test">
+        <methods>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- Tests.searchname_test -->
+    </classes>
+  </test> <!-- Searchname_test2(failed) -->
+</suite> <!-- Failed suite [contacts app] -->
