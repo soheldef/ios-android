@@ -28,7 +28,7 @@ public class contactsearchpage {
 	}
 	
 	@AndroidFindBy (id = "name") 
-	//@iOSXCUITFindBy (xpath = "//XCUIElementTypeSearchField[@name=\"Search for contact\"]") 
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeOther[@name=\"Search results\"]/XCUIElementTypeCell\"]") 
 	MobileElement validsearchresult;
 	
 	public String validsearchresult() {
@@ -38,7 +38,7 @@ public class contactsearchpage {
 	}
 	
 	@AndroidFindBy (id = "main_text") 
-	//@iOSXCUITFindBy (xpath = "//XCUIElementTypeSearchField[@name=\"Search for contact\"]") 
+	@iOSXCUITFindBy (xpath = "//XCUIElementTypeStaticText[@name=\"No Results\"]") 
 	MobileElement invalidsearchresult;
 	
 	public String invalidsearchresult() {

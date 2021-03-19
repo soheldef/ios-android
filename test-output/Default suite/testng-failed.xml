@@ -6,4 +6,15 @@
       <class name="Tests.searchname_test"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)" parallel="none">
+    <classes>
+      <class name="Tests.searchname_test">
+        <methods>
+          <include name="setup"/>
+          <include name="SearchTamim"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- Tests.searchname_test -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

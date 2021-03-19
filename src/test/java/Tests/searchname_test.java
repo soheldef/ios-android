@@ -22,9 +22,18 @@ public class searchname_test extends BaseClass{
 	public void SearchTamim() throws InterruptedException  {
 		//Thread.sleep(2000);
 		contactsearchpage = new contactsearchpage(driver);
-		contactsearchpage.search("tamim");	
+		contactsearchpage.search("tamim");
+		String expected_text;
+		
+		if (super.platform == "android") 
+			expected_text = "No result";
+		else
+			expected_text = "No contacts found with \"tamim\" in the name\"";
+		
+		System.out.println(expected_text);
 		String asd = contactsearchpage.invalidsearchresult();
-		Assert.assertEquals(asd, "No contacts found with \"tamim\" in the name");
+		
+		Assert.assertEquals(asd, expected_text);
 	}
 	
 }

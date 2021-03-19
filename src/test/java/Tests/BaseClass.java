@@ -11,6 +11,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class BaseClass {
 
 	public AppiumDriver<MobileElement> driver;
+	String platform;
 
 	@BeforeTest
 	public void setup() {
@@ -18,7 +19,7 @@ public class BaseClass {
 		try {
 			DesiredCapabilities caps = new DesiredCapabilities();
 
-			String platform = "android";
+			this.platform = "android";
 			System.out.println("this is 2");
 
 			if (platform.equalsIgnoreCase("Android")) {
